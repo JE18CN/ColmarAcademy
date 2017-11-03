@@ -1,35 +1,142 @@
 /* style.css for Colmar Academy project */
 
+/*********************************************************************
+  *******  Fonts *******
+  FontFamily      Verdana   (default - with 16px font-size)
+  FontFamily      Times     (header title)
+
+  *******  Colors *******
+  Header          background-color: #FFC125   goldenrod1
+                  color:            #000000   black       (default)
+  Banner          background-color: #fff8dc   cornsilk    (default)
+                  color:            #000000   black       (default)
+  Information     background-color: #fff8dc   cornsilk    (default)
+                  color:            #000000   black       (default)
+  Courses         background-color: #EEE8CD   cornsilk2
+                  color:            #000000   black       (default)
+  Thesis          background-color: #CDC8B1   cornsilk3
+  Footer          background-color: #8B8878   cornsilk4
+                  color:            #ffffff   white
+
+  header nav a
+          hover   color            ##ff4500   orangered
+
+  banner button   background-color  #a3a37a;  goldenrod3
+                  color             #ffffff   white
+          hover   background-color  #eead0e   darkgoldenrod2
+
+  feature item    background-colot: #ffffff   white
+
+  feature anchor  color            #ff7f00   darkorange1
+          hover   font-weight      800
+        visited   color            #6495ed   cornflower blue
+
+  course          background-colot: #ffffff   white
+*********************************************************************/
+
 /* General */
-html {
-  font-family: "Helvetica", sans-serif;
+body {
+  font-family: "Verdana", sans-serif;
   font-size: 16px;
+  margin: 0;
 }
 
+/* main content container below header */
 .mainContainer {
   position: relative;
-  top: 4.25rem;
-  padding-left: 24px;
-  padding-right: 24px;
-  background-color: #efefef;
+  top: 4.20rem;
+  background-color: #fff8dc;
+  color: #000000;
 }
 
+/* section title for courses and thesis sections */
 .sectionTitle {
-  padding: 32px 24px;
+  padding: 2rem 0;
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
 }
 
+/* information and thesis features */
+.flexFeatures {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-height: 12.5rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  background-color: #ffffff;
+}
+
+.leftColumn {
+  width: 35%;
+}
+
+.rightColumn {
+  width: 65%;
+}
+
+.rightColumn.mobile {
+  display: none;
+}
+
+.featureItem img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.featureItem h2 {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.featureItem p {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.featureItem a {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #ff7f00;
+  text-decoration: underline;
+}
+
+.featureItem a:hover {
+  font-weight: 800;
+}
+
+.featureItem a:visited {
+  color: #6495ed;
+}
+
+
 
 /* Header section */
 header {
   position: fixed;
-  z-index: 10;
+  z-index: 1;
   width: 100%;
   height: 64px;
-  background-color: white;
-  border: 1px solid red;
+  background-color: #ffc125;
 }
 
 header .content {
@@ -40,12 +147,13 @@ header .content {
 
 header .title {
   flex: 1;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: Times, serif;
 }
 
 header span {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 header nav ul {
@@ -56,11 +164,20 @@ nav li {
   padding-left: 1rem;
 }
 
+nav a {
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #ff4500;
+  font-weight: 800;
+}
+
 header .mobile {
   display: none;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 560px) {
   header .desktop {
     display: none;
   }
@@ -80,43 +197,209 @@ header .mobile {
 
 /* Banner section */
 .banner {
-  border: 1px solid green;
+  padding: 2rem 1.5rem;
+  background-color: #fff8dc;
+}
+
+.flexBanner {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.leftBanner {
+  width: 60%;
+  padding-right: 1.5rem;
+}
+
+.rightBanner {
+  width: 40%;
+  line-height: 1.2;
+}
+
+.bannerItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bannerItem img {
   width: 100%;
+  height: auto;
+}
+
+.bannerItem h1 {
+  padding-top: 7rem;
+  margin-right: 7rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.bannerItem h2 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-right: 7rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.bannerItem button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-right: 7rem;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  background-color: #a3a37a;
+  color: #ffffff;
+  transition-duration: 0.4s;
+}
+
+.bannerItem button:hover {
+  background-color: #eead0e;
+}
+
+@media only screen and (max-width: 560px) {
+  .flexBanner {
+    flex-direction: column;
+  }
+
+  .leftBanner {
+    width: 100%;
+  }
+
+  .rightBanner {
+    width: 100%;
+    padding: 0;
+  }
+
+  .bannerItem h1 {
+    margin: 0;
+    padding-top: 2rem;
+  }
+
+  .bannerItem h2 {
+    margin: 0;
+    padding-top: 2rem;
+  }
+
+  .bannerItem button {
+    margin: 0;
+  }
 }
 
 /* Information section */
 .information {
-  border: 1px solid orange;
-  width: 100%;
+  padding: 2rem 1.5rem;
+  background-color: #fff8dc;
 }
 
+.flexInformation {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.leftInfo {
+  width: 60%;
+  padding-right: 1.5rem;
+}
+
+.rightInfo {
+  width: 40%;
+}
+
+.hireInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.hireInfo img {
+  width: 100%;
+  height: auto;
+}
+
+.hireInfo h2 {
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.hireInfo p {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 560px) {
+  .leftInfo {
+    display: none;
+  }
+
+  .rightInfo {
+    width: 100%;
+  }
+
+  .leftColumn {
+    display: none;
+  }
+
+  .rightColumn {
+    width: 100%;
+  }
+
+  .rightColumn.mobile {
+    display: contents;
+  }
+
+  .featureItem {
+    max-height: 21rem;
+    margin-bottom: 2rem;
+  }
+
+  .featureItem img {
+    width: 96%;
+    margin-top: 1rem;
+  }
+
+  .featureItem h2 {
+    margin: 0.5rem 0.5rem 0;
+  }
+
+  .featureItem p {
+    margin: 0.5rem 0.5rem 0;
+  }
+
+  .featureItem a {
+    margin: 0.5rem 0.5rem 0;
+  }
+}
 
 /* Courses section */
 .courses {
-  padding: 32px 72px;
-  background-color: #dcdcdc;
-  border: 1px solid blue;
+  background-color: #eee8cd;
 }
 
 .flexCourses {
   display: flex;
   justify-content: flex-start;
-  align-content: space-around;
+  align-content: space-between;
   flex-wrap: wrap;
+  padding-left: 4rem;
 }
 
 .course {
-  width: 28%;
+  max-width: 25%;
   max-height: 30%;
-  margin: 0 1rem 1rem 1rem;
-  background-color: #ffffff;
+  margin: 0 2rem 1rem 1rem;
   padding: 1rem;
+  background-color: #ffffff;
 }
 
 .course img {
   width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
   display: block;
 }
 
@@ -124,14 +407,12 @@ header .mobile {
   padding: 0.5rem;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #4a4a4a;
 }
 
 .course h3 {
   padding: 0.5rem;
   font-weight: 300;
   font-size: 1rem;
-  color: #4a4a4a;
 }
 
 .course p {
@@ -141,16 +422,18 @@ header .mobile {
 }
 
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 560px) {
   .flexCourses {
-    flex-flow: column;
-    align-items: center;
-    padding: 0;
+    flex-direction: column;
+    padding-left: 0.5rem;
+    background-color: #eee8cd;
+    padding-bottom: 1rem;
   }
 
   .course {
-    width: 100%;
-    background-color: #ffffff;
+    max-width: 100%;
+    margin: 0.5rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .course img {
@@ -167,22 +450,83 @@ header .mobile {
 }
 
 /* Thesis section */
-.thesis {
-  border: 1px solid purple;
-  width: 100%;
+.thesisExhibits {
+  background-color: #cdc881;
 }
 
+.flexThesis {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  border-bottom: 1.5rem solid #cdc881;
+  background-color: #ffffff;
+}
+
+.leftThesis {
+  width: 60%;
+  padding-right: 1.5rem;
+}
+
+.rightThesis {
+  width: 40%;
+}
+
+.videoExhibit {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 1.5rem;
+}
+
+.videoExhibit video {
+  width: 100%;
+  height: auto;
+}
+
+.videoExhibit h2 {
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.videoExhibit p {
+  padding: 0.5rem;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 560px) {
+  .leftThesis {
+    width: 100%;
+    padding-right: 0;
+ }
+
+  .rightThesis {
+    display: none;
+  }
+
+  .videoExhibit {
+    padding-bottom: 0;
+
+  }
+  .videoExhibit h2 {
+    display: none;
+  }
+
+  .videoExhibit p {
+    display: none;
+  }
+}
 
 /* Footer section */
 footer {
-  background-color: #efefef;
+  background-color: #8b8878;
+  color: #ffffff;
   padding: 1.5rem 2rem;
-  width: 100%;
-  border: 1px solid black;
 }
 
 footer .content {
-  color: black;
   display: flex;
   font-size: 1rem;
 }
@@ -191,8 +535,20 @@ footer .copyright {
   flex-grow: 1;
 }
 
-@media only screen and (max-width: 760px) {
+footer .privacy {
+  text-align: right;
+}
+
+@media only screen and (max-width: 560px) {
+  footer {
+    padding: 1rem 1rem;
+  }
+
   footer .content {
-    font-size: .625rem;
+    font-size: .80rem;
+  }
+
+  footer .privacy {
+    display: none;
   }
 }
